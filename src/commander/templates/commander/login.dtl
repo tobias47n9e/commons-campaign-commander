@@ -1,0 +1,10 @@
+
+  <p>Hello {{ user.username }}!</p>
+  <h2>Login</h2>
+  <br>
+  <p><strong>-- OR --</strong></p>
+  <a href="{{redirect}}">
+  Login with Wikimedia</a>
+
+
+    {% debug %}

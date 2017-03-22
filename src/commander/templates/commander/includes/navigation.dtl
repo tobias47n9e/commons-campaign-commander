@@ -1,0 +1,18 @@
+<div class="navigation">
+  <div class="title-div">Commons Campaign Commander</div>
+
+  <div class="navigation-blocks">
+    <nav class="top-nav">
+      <div class="nav-item">
+        <a href="{% url 'home' %}">Home</a>
+      </div>
+      <div class="nav-item">
+        <a href="{% url 'image_requests' %}">Image Requests</a>
+      </div>
+      <div class="nav-item">Campaigns (Coming soon)</div>
+      <div class="nav-item">
+        <a href="{% url 'user_profile' %}">Profile</a>
+      </div>
+    </nav>
+  </div>
+</div>

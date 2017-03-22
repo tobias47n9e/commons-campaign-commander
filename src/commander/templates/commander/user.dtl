@@ -1,0 +1,16 @@
+{% extends 'commander/base.dtl' %}
+
+{% load static %}
+
+{% block content %}
+  {% include 'commander/includes/navigation.dtl' %}
+
+  <div class="main-content">
+    <div class="content-background">
+      <h2 class="section-header">User</h2>
+
+      {{ user }}
+    </div>
+  </div>
+
+{% endblock %}

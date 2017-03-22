@@ -1,0 +1,15 @@
+{% extends 'commander/base.dtl' %}
+
+{% load static %}
+
+{% block content %}
+
+  {% include 'commander/includes/navigation.dtl' %}
+
+  <div class="content-wrapper">
+    <div class="main-content">
+      {% include 'commander/includes/oauth_login.dtl' %}
+    </div>
+  </div>
+
+{% endblock %}

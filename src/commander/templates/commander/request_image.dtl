@@ -1,0 +1,14 @@
+{% extends 'commander/base.dtl' %}
+
+{% block content %}
+  {% include 'commander/includes/navigation.dtl' %}
+
+  <div class="content-wrapper">
+    <div class="main-content">
+      <div class="request-container show-form-elements">
+        {% include 'commander/includes/request_item.dtl' %}
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

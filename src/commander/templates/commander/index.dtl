@@ -1,0 +1,44 @@
+{% extends 'commander/base.dtl' %}
+
+{% block content %}
+
+<div class="index-page">
+  <div class="content">
+    <div class="page-shadow"></div>
+
+    <div class="centered-content index-page">
+      <article>
+        <h1 class="page-header">Commons Campaign Commander</h1>
+        <p class="warning">
+          This is an early development version. Feelings
+          will be hurt!
+        </p>
+        <p>
+          With Commons Campaign Commander you can request
+          images and create campaigns for Wikimedia Commons.
+          Click on "Embark" below to begin your journey.
+        </p>
+        <h2 class="section-header">How can I request an image?</h2>
+        <p>
+          Login using your Wikimedia account using OAuth.
+          You will automatically be asked to log in on the
+          appropriate pages.
+        </p>
+        <h2 class="section-header">What happens with the data?</h2>
+        <p>
+          The requested images and campaigns are public.
+          The data is stored permanently in this database and
+          can be accessed using this website or a public
+          REST API. Your can delete your own request at
+          any time.
+        </p>
+      </article>
+      <div class="button-div">
+        <a href="/home/" class="embark-button">Embark</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% load static %}
+
+<div class="login-box">
+  <div class="oauth-header-div">
+    OAuth Login
+  </div>
+  <div class="oauth-text">
+    Commons Campaign Commander relies on Wikipedia
+    OAuth authentification to manage users and image
+    and campaign requests. Only your username and
+    unique user ID, and session data is stored in
+    this tools database.<br/>
+    For more information read and inquire at
+    <a href="https://www.mediawiki.org/wiki/Help:OAuth">
+    Help:OAuth</a>.
+  </div>
+  <div class="oauth-box">
+    <a class="block-link" href="{% url 'social:begin' 'mediawiki' %}">
+      <div class="link-box">
+        <div class="logo-div">
+          <img src="{% static 'img/wikipedia-puzzle-logo.svg' %}"
+               alt="" role="presentation" class="logo-image"/>
+        </div>
+        <div class="text-div">
+          Sign up/log in using Wikipedia
+        </div>
+      </div>
+    </a>
+  </div>
+</div>

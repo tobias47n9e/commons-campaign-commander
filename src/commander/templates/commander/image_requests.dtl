@@ -1,0 +1,29 @@
+{% extends 'commander/base.dtl' %}
+
+{% load static %}
+
+{% block content %}
+  {% include 'commander/includes/navigation.dtl' %}
+
+  <div class="main-content">
+    <div class="page-menu">
+      <div class="item">
+        <a href="{% url 'image_requests' %}">All Requests</a>
+      </div>
+      <div class="item">
+        <a href="{% url 'add_image_request' %}">Add Request</a>
+      </div>
+      <div class="item">My Requests</div>
+      <div class="item">
+        <a href="{% url 'api_image_requests' %}">API</a>
+      </div>
+    </div>
+
+    <div class="request-container">
+      {% for request_item in image_requests %}
+        {% include 'commander/includes/request_item.dtl' %}
+      {% endfor %}
+    </div>
+  </div>
+
+{% endblock %}

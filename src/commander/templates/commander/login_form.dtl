@@ -1,0 +1,17 @@
+<form id="user-login-form" method="POST" action="{{ login_form.action }}">
+  {% csrf_token %}
+
+  {% if user.is_authenticated %}
+    {{ user.username }}
+  {% else %}
+    <input type="text" name="username"/>
+    <input type="password" name="password"/>
+    {% if login_form.message %}
+      {{ login_form.message }}
+    {% endif %}
+  {% endif %}
+
+  <input id="user-login-button" type="submit"
+    value="{{ login_form.button_label }}"/>
+</form>
+

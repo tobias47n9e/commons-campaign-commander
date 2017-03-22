@@ -1,0 +1,206 @@
+{% load static %}
+
+<div class="request-item js-request-item"
+  id="image-request-{{ request_item.id|default:'r' }}"
+  data-request-id="{{ request_item.id|default:'r' }}"
+  data-wikidata-id="{{ request_item.wikidata_id }}">
+  <form class="js-request-form" action="api/images" method="POST">
+    <div class="form-item request-help">
+      Each request needs to be assciated with a Wikidata
+      item. If the item has coordinates these are
+      automatically retrieved. For objects with no
+      coordinates please try to find appropriate
+      values (hometown of a person, museum where the
+      painting is on display). Coordinates use
+      WGS84 (EPSG 4326).
+    </div>
+    <div class="top-row">
+      <div class="left-top">
+        <div class="request-id">
+          <div class="hide-in-form">
+          # {{ request_item.id }}
+          </div>
+        </div>
+
+        <div class="logo-div">
+          <img src="{% static 'img/wikidata-logo.svg' %}"
+            class="wikidata-logo">
+        </div>
+
+        <div class="wikidata-id">
+          <a href="https://www.wikidata.org/wiki/{{ request_item.wikidata_id }}">
+            {{ request_item.wikidata_id }}
+          </a>
+          <input id="wikidata-id-input-{{ request_item.id|default:'r' }}"
+              class="form-item wikidata-id-input js-wikidata-id-field"
+              type="text" name="wikidata_id"
+              placeholder="Wikidata ID"
+              data-request-id="{{ request_item.id|default:'r' }}"/>
+        </div>
+        <div>
+          <img src="{% static 'img/location-icon.svg' %}"
+            class="location-icon" alt="" role="presentation"/>
+        </div>
+        <div class="coordinates">
+          <div class="hide-in-form">
+            <a href="https://tools.wmflabs.org/geohack/geohack.php?params={{ request_item.points.coords.0.0 }}_N_{{ request_item.points.coords.0.1 }}_E_">
+              {{ request_item.points.coords.0.0 }} N,
+              {{ request_item.points.coords.0.1 }} W
+            </a>
+          </div>
+          <div class="form-item">
+            <input id="latitude-input-{{ request_item.id|default:'r' }}"
+              class="js-latitude-field" type="text" name="latitude"
+              placeholder="Latitude"
+              data-request-id="{{ request_item.id|default:'r' }}"/>
+            <input id="longitude-input-{{ request_item.id|default:'r' }}"
+              class="js-longitude-field" type="text" name="longitude"
+              placeholder="Longitude"
+              data-request-id="{{ request_item.id|default:'r' }}"/>
+          </div>
+        </div>
+      </div>
+      <div class="right-top hide-in-form">
+        <div data-request-id="{{ request_item.id|default:'r' }}"
+             class="option-icon js-request-option-icon">
+          <svg class="item-option-icon" width="30" height="30">
+            <circle cx="15" cy="5" r="3"/>
+            <circle cx="15" cy="15" r="3"/>
+            <circle cx="15" cy="25" r="3"/>
+          </svg>
+        </div>
+        <div id="request-option-menu-{{ request_item.id|default:'r' }}"
+             class="request-options-menu">
+          <svg class="triangle">
+            <polygon points="15 0 30 15 0 15"/>
+          </svg>
+          <div class="menu-item">
+            <a class="menu-link">Edit</a>
+          </div>
+          <div class="menu-item">
+            <a class="menu-link js-menu-add-image"
+               data-request-id="{{ request_item.id|default:'r' }}">
+               Add image
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-item">
+      <div class="flex-reverse">
+        <div class="flex">
+          <div class="sides-padded">
+            Use coordinates of this item:
+          </div>
+          <input id="coordinate-item-input-{{ request_item.id|default:'r' }}"
+              type="text"
+              data-request-id="{{ request_item.id|default:'r' }}"
+              class="js-coordinate-item-input"
+              placeholder="Item for coordinates"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="request-texts">
+      {% for lang_item in request_item.request_texts.all %}
+        <div class="request-text-item">
+          <div class="lang-code-div">
+            {{ lang_item.lang }}
+          </div>
+          <div class="wikidata-label js-wikidata-label"
+            data-wikidata-id="{{ request_item.wikidata_id }}"
+            data-language="{{ lang_item.lang|default:'en' }}">
+            {# Label placed here after Wikidata call #}
+          </div>
+          <div class="request-text">
+            {{ lang_item.text }}
+          </div>
+        </div>
+      {% endfor %}
+      <div class="form-item">
+        <div class="js-first-request-item">
+          <div class="request-text-item js-request-text-item">
+            <div class="lang-code-div">
+              {{ lang_item.lang }}
+              <input class="lang-input js-request-text-lang-input"
+                type="text" name="request-text-lang"
+                placeholder="Language code"/>
+            </div>
+            <div class="wikidata-label js-wikidata-label"
+              data-wikidata-id="{{ request_item.wikidata_id }}"
+              data-language="{{ lang_item.lang|default:'en' }}">
+              {# Label placed here after Wikidata call #}
+            </div>
+            <div class="request-text">
+              {{ lang_item.text }}
+              <textarea
+                class="js-request-text-input request-textarea"
+                name="request-text"
+                placeholder="Request Text"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="more-request-rows js-more-request-rows">
+          {# Additional language requests are put here #}
+        </div>
+        <div class="add-language-div">
+          <button class="add-request-language-button js-add-language"
+            data-request-id="{{ request_item.id|default:'r' }}">
+              Add text in another language
+            </button>
+        </div>
+      </div>
+    </div>
+    <div class="form-item">
+      <div class="submit-request">
+        <button
+          class="submit-image-request js-submit-request loading-button"
+          data-request-id="{{ request_item.id|default:'r' }}">
+          Submit request</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="submitted-image">
+    {% for image in request_item.submitted_images.all %}
+      <div>
+        {{ image.submitted }}
+        {{ image.filename }}
+        {{ image.user }}
+      </div>
+    {% endfor %}
+  </div>
+
+  <div id="add-image-div-{{ request_item.id|default:'r' }}"
+       class="hide-in-form add-image-div">
+    <div>
+      <form id="submit-image-form-{{ request_item.id|default:'r' }}"
+            class="js-submit-image-form"
+            action="api/images/{{ request_item.id|default:'' }}/"
+            method="POST">
+        <input id="add-image-input-{{ request_item.id|default:'r' }}"
+              class="" type="text" name="filename"
+              placeholder="Filename on Commons"
+              data-request-id="{{ request_item.id|default:'r' }}"/>
+        <input type="hidden"
+            name="request_id"
+            value="{{ request_item.id|default:'r' }}"/>
+        <button class="submit-image loading-button js-submit-image-button"
+          data-request-id="{{ request_item.id|default:'r' }}">
+          Submit request</button>
+      </form>
+    </div>
+  </div>
+  <div class="hide-in-form">
+    <div class="bottom-row">
+      <div class="request-date">
+        {{ request_item.created.year }}-{{ request_item.created.month }}-{{ request_item.created.day }}
+      </div>
+      <div class="request-creator">
+        {{ request_item.creator }}
+      </div>
+    </div>
+  </div>
+</div>
+

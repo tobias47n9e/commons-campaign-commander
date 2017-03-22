@@ -1,0 +1,434 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $blue;
+    background-image: url('/static/img/campaign-commander-background-lowres.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+@font-face {
+    font-family: CormorantGaramond;
+    src: url('/static/fonts/CormorantGaramond-Regular.ttf');
+}
+
+p {
+    font-family: 'Cantarell';
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+textarea,
+input {
+    font-size: 16px;
+    border-radius: 3px;
+    border: 1px solid #b0b0b0;
+    box-sizing: border-box;
+
+    &.invalid {
+        border-color: red;
+    }
+}
+
+input {
+    line-height: 30px;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+textarea {
+    line-height: 24px;
+    font-family: 'Cantarell';
+    padding: 5px 10px;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    font-family: sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #1b15ff;
+}
+
+.block-link {
+    display: block;
+}
+
+.page-header {
+    font-family: sans-serif;
+}
+
+.page-background {
+    background-color: #1e62dd;
+    background-image: url('/static/img/campaign-commander-background.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.loading-button {
+    position: relative;
+
+    &.loading {
+        &:before {
+            content: '';
+            position: absolute;
+            background: url('/static/img/animated_loading_icon.svg');
+            left: 10px;
+            width: 40px;
+            height: 40px;
+            top: 0;
+            background-repeat: no-repeat;
+        }
+    }
+}
+
+.header-container {
+    width: calc(100% - 60px);
+    max-width: 1400px;
+    box-sizing: border-box;
+    z-index: 1;
+    position: relative;
+}
+
+.nav-list {
+    width: calc(100% - 150px);
+    display: flex;
+    flex-direction: row;
+    background-color: #bada55;
+}
+
+.nav-list li {
+    list-style: none;
+    display: block;
+    font-size: 20px;
+    color: white;
+    font-weight: 700;
+    font-family: sans-serif;
+    padding: 0 10px;
+}
+
+.login-form-container {
+    width: 150px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.button {
+    padding: 20px;
+    cursor: default;
+    background-color: #ff5800;
+    display: inline-block;
+}
+
+.input-fields-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 80px);
+    margin: 15px 0;
+}
+
+.input-field-container {
+    width: calc(50% - 15px);
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.input-field-container label {
+    line-height: 40px;
+    font-family: sans-serif;
+    width: 50%;
+}
+
+.input-field-container input {
+    line-height: 40px;
+    border-radius: 0;
+    border: 2px solid #616161;
+    padding: 0 20px;
+    width: 50%;
+}
+
+.request-text-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.field-wrapper {
+    width: calc(50% - 15px);
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.field-wrapper label {
+    line-height: 40px;
+    font-family: sans-serif;
+    width: 50%;
+}
+
+.field-wrapper input,
+.field-wrapper textarea {
+    line-height: 40px;
+    border-radius: 0;
+    border: 2px solid #616161;
+    padding: 0 20px;
+    width: 50%;
+}
+
+.field-wrapper input {
+    height: 40px;
+}
+
+.limit-left-width {
+    width: calc(100% - 80px);
+    display: flex;
+    justify-content: space-between;
+}
+
+.image-header-bar {
+    background-image: url('/static/img/campaign-commander-background.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 200px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.center-image-header {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.image-header {
+    color: white;
+}
+
+.form-background {
+
+}
+
+.request-list-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.request-list-center {
+    width: calc(100% - 20px);
+    max-width: 800px;
+}
+
+.request-item {
+    margin: 20px 0;
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+.main-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.list-item {
+    display: block;
+    text-align: center;
+}
+
+.list-item a {
+    display: block;
+    color: #e4e4e4;
+    text-decoration: none;
+    height: 60px;
+    line-height: 60px;
+    font-size: 22px;
+    font-family: sans-serif;
+    transition: all 0.2 linear;
+}
+
+.list-item a:hover {
+    color: white;
+    background-color: #292929;
+}
+
+.commander-background {
+    background-image: url('/static/img/campaign-commander-background.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+.page-layout {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.main-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.request-container {
+    width: calc(100% - 40px);
+    max-width: 1000px;
+}
+
+.top-row {
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    justify-content: space-between;
+}
+
+.wikidata-logo {
+    height: 18px;
+    width: auto;
+    vertical-align: bottom;
+    padding-bottom: 1px;
+}
+
+.location-icon {
+    height: 18px;
+    vertical-align: bottom;
+    padding-bottom: 1px;
+}
+
+.wikidata-id {
+    padding: 20px;
+    min-width: 150px;
+}
+
+.request-id {
+    min-width: 60px;
+}
+
+.request-texts {
+    padding-top: 20px;
+    padding-bottom: 5px;
+    width: calc(100% - 40px);
+}
+
+.request-text-item + .request-text-item {
+    margin-top: 10px;
+}
+
+.request-text-item {
+    display: flex;
+    align-items: stretch;
+}
+
+.lang-code-div {
+    padding-right: 20px;
+    min-width: 60px;
+    border-right: 3px solid #c5c5c5;
+}
+
+.coordinates {
+    padding-left: 20px;
+}
+
+.bottom-row {
+    margin-top: 20px;
+    font-family: sans-serif;
+    font-size: 14px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.request-date {
+    padding-left: 20px;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    background-color: white;
+}
+
+.oauth-box {
+    filter: drop-shadow(3px 3px 3px #787878);
+}
+
+.oauth-box:hover {
+    filter: drop-shadow(3px 3px 3px #5A5A5A);
+    background-color: #F2F2F2;
+}
+
+.oauth-box:hover .link-box {
+    background-color: #F9F9F9;
+}
+
+.link-box {
+    display: flex;
+    padding: 10px;
+    background-color: #FFF;
+    transition: all 0.1s linear;
+}
+
+.logo-div {
+    padding: 10px;
+}
+
+.logo-image {
+    width: 50px;
+    height: 50px;
+    display: block;
+}
+
+.text-div {
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    font-family: sans-serif;
+    color: #1e1e1e;
+    font-size: 18px;
+}
+
+.oauth-header-div {
+    font-size: 30px;
+    text-align: center;
+    padding: 20px;
+}
+
+.oauth-text {
+    padding-bottom: 20px;
+    font-family: sans-serif;
+    text-align: justify;
+    font-size: 16px;
+    line-height: 21px;
+}
+
+.vertical-center {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.warning {
+    color: red;
+}
