@@ -1,7 +1,3 @@
-"""
-Django settings for commons_campaign_commander project.
-"""
-
 import os
 
 
@@ -12,7 +8,7 @@ SECRET_KEY = os.environ.get('django_secret')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'tools.wmflabs.org',
+    'ccc.sites.djangoeurope.com',
 ]
 
 INSTALLED_APPS = [
@@ -41,7 +37,7 @@ MIDDLEWARE_CLASSES = [
     'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
-ROOT_URLCONF = 'commons_campaign_commander.urls'
+ROOT_URLCONF = 'campaign.urls'
 
 TEMPLATES = [
     {
@@ -61,7 +57,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'commons_campaign_commander.wsgi.application'
+WSGI_APPLICATION = 'campaign.wsgi.application'
 
 DATABASES = {
     'default': {
