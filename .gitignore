@@ -90,3 +90,6 @@ ENV/
 
 # Node
 node_modules/
+
+# PID
+*.pid
